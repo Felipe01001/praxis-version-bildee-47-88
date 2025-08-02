@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { FileText, Search, Plus, Calendar, User, ArrowRight, FileCheck, ExternalLink } from 'lucide-react';
+import { SubscriptionAccessWrapper } from '@/components/subscription/SubscriptionAccessWrapper';
 
 const JudicialProcessesList = () => {
   const { judicialProcesses = [], clients } = usePraxisContext();
@@ -68,18 +69,22 @@ const JudicialProcessesList = () => {
       <div className="flex justify-between items-center">
         <h1 className="text-2xl sm:text-3xl font-bold text-praxis-text">Processos Judiciais</h1>
         <div className="flex gap-2">
-          <Button asChild variant="outline">
-            <Link to="/judicial-processes/search">
-              <Search className="h-4 w-4 mr-2" />
-              Pesquisar processo
-            </Link>
-          </Button>
-          <Button asChild>
-            <Link to="/judicial-processes/new">
-              <Plus className="h-4 w-4 mr-2" />
-              Novo processo
-            </Link>
-          </Button>
+          <SubscriptionAccessWrapper action="pesquisar um processo judicial">
+            <Button asChild variant="outline">
+              <Link to="/judicial-processes/search">
+                <Search className="h-4 w-4 mr-2" />
+                Pesquisar processo
+              </Link>
+            </Button>
+          </SubscriptionAccessWrapper>
+          <SubscriptionAccessWrapper action="criar um novo processo judicial">
+            <Button asChild>
+              <Link to="/judicial-processes/new">
+                <Plus className="h-4 w-4 mr-2" />
+                Novo processo
+              </Link>
+            </Button>
+          </SubscriptionAccessWrapper>
         </div>
       </div>
       
@@ -159,18 +164,22 @@ const JudicialProcessesList = () => {
               <FileText className="h-10 w-10 mx-auto mb-3 text-muted-foreground/50" />
               <p>Nenhum processo judicial encontrado.</p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
-                <Button asChild variant="outline">
-                  <Link to="/judicial-processes/search" className="flex items-center gap-2">
-                    <Search className="h-4 w-4" />
-                    Pesquisar processo
-                  </Link>
-                </Button>
-                <Button asChild>
-                  <Link to="/judicial-processes/new" className="flex items-center gap-2">
-                    <Plus className="h-4 w-4" />
-                    Adicionar novo processo
-                  </Link>
-                </Button>
+                <SubscriptionAccessWrapper action="pesquisar um processo judicial">
+                  <Button asChild variant="outline">
+                    <Link to="/judicial-processes/search" className="flex items-center gap-2">
+                      <Search className="h-4 w-4" />
+                      Pesquisar processo
+                    </Link>
+                  </Button>
+                </SubscriptionAccessWrapper>
+                <SubscriptionAccessWrapper action="criar um novo processo judicial">
+                  <Button asChild>
+                    <Link to="/judicial-processes/new" className="flex items-center gap-2">
+                      <Plus className="h-4 w-4" />
+                      Adicionar novo processo
+                    </Link>
+                  </Button>
+                </SubscriptionAccessWrapper>
               </div>
             </div>
           )}

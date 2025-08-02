@@ -14,6 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { StatusBadge } from '@/components/StatusBadge';
 import { format } from 'date-fns';
 import { ptBR } from '@/lib/utils';
+import { SubscriptionAccessWrapper } from '@/components/subscription/SubscriptionAccessWrapper';
 
 interface TasksFilterCardProps {
   tasks: Task[];
@@ -100,12 +101,14 @@ export default function TasksFilterCard({ tasks, clients, cases, addTask }: Task
           </p>
         </div>
         <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
-          <DialogTrigger asChild>
-            <Button>
-              <Plus className="h-4 w-4 mr-2" />
-              Nova Tarefa
-            </Button>
-          </DialogTrigger>
+          <SubscriptionAccessWrapper action="criar uma nova tarefa">
+            <DialogTrigger asChild>
+              <Button>
+                <Plus className="h-4 w-4 mr-2" />
+                Nova Tarefa
+              </Button>
+            </DialogTrigger>
+          </SubscriptionAccessWrapper>
           <DialogContent className="max-w-2xl">
             <DialogHeader>
               <DialogTitle>Nova Tarefa</DialogTitle>

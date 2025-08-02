@@ -24,6 +24,7 @@ import { Category, Status, ClientStatus, Client } from '@/types';
 import { Search, UserPlus } from 'lucide-react';
 import { CATEGORY_LABELS } from '@/constants';
 import { useHoverEffect } from '@/hooks/useHoverEffect';
+import { SubscriptionAccessWrapper } from '@/components/subscription/SubscriptionAccessWrapper';
 
 const ClientList = () => {
   const { clients, cases } = usePraxisContext();
@@ -78,10 +79,12 @@ const ClientList = () => {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <h1 className="text-2xl sm:text-3xl font-bold text-praxis-text">Clientes</h1>
         
-        <Button onClick={handleAddClient} className="bg-praxis-olive hover:bg-praxis-olive/90 flex items-center gap-2">
-          <UserPlus className="h-4 w-4" />
-          Novo Cliente
-        </Button>
+        <SubscriptionAccessWrapper action="criar um novo cliente">
+          <Button onClick={handleAddClient} className="bg-praxis-olive hover:bg-praxis-olive/90 flex items-center gap-2">
+            <UserPlus className="h-4 w-4" />
+            Novo Cliente
+          </Button>
+        </SubscriptionAccessWrapper>
       </div>
       
       <Card className="overflow-hidden">

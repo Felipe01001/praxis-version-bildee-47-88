@@ -29,6 +29,7 @@ import { StatusBadge } from '@/components/StatusBadge';
 import { Search as SearchIcon } from 'lucide-react';
 import { CATEGORY_LABELS, SUBCATEGORIES } from '@/constants';
 import { Category, Status } from '@/types';
+import { SubscriptionAccessWrapper } from '@/components/subscription/SubscriptionAccessWrapper';
 
 const Search = () => {
   const { clients, cases, tasks } = usePraxisContext();
@@ -182,10 +183,12 @@ const Search = () => {
               </SelectContent>
             </Select>
             
-            <Button onClick={handleSearch}>
-              <SearchIcon className="h-4 w-4 mr-2" />
-              Pesquisar
-            </Button>
+            <SubscriptionAccessWrapper action="pesquisar">
+              <Button onClick={handleSearch}>
+                <SearchIcon className="h-4 w-4 mr-2" />
+                Pesquisar
+              </Button>
+            </SubscriptionAccessWrapper>
           </div>
         </CardContent>
       </Card>

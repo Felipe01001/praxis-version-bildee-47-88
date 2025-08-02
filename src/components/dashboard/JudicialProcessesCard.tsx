@@ -7,6 +7,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { JudicialProcess } from '@/types';
 import { useTheme } from '@/context/ThemeContext';
 import { usePraxisContext } from '@/context/PraxisContext';
+import { SubscriptionAccessWrapper } from '@/components/subscription/SubscriptionAccessWrapper';
 
 // Properly typed component props
 interface JudicialProcessesCardProps {
@@ -126,18 +127,22 @@ const JudicialProcessesCard = ({
             <div className="text-center py-6 text-muted-foreground">
               Nenhum processo judicial encontrado.
               <div className="mt-4 flex flex-col gap-2">
-                <Button asChild variant="outline">
-                  <Link to={clientId ? `/clients/${clientId}/judicial` : "/judicial-processes/new"}>
-                    <Plus className="h-4 w-4 mr-2" />
-                    Adicionar processo judicial
-                  </Link>
-                </Button>
-                <Button asChild variant="default" style={{ backgroundColor: headerColor }}>
-                  <Link to="/judicial-processes/search">
-                    <Search className="h-4 w-4 mr-2" />
-                    Pesquisar processo
-                  </Link>
-                </Button>
+                <SubscriptionAccessWrapper action="criar um novo processo judicial">
+                  <Button asChild variant="outline">
+                    <Link to={clientId ? `/clients/${clientId}/judicial` : "/judicial-processes/new"}>
+                      <Plus className="h-4 w-4 mr-2" />
+                      Adicionar processo judicial
+                    </Link>
+                  </Button>
+                </SubscriptionAccessWrapper>
+                <SubscriptionAccessWrapper action="pesquisar um processo judicial">
+                  <Button asChild variant="default" style={{ backgroundColor: headerColor }}>
+                    <Link to="/judicial-processes/search">
+                      <Search className="h-4 w-4 mr-2" />
+                      Pesquisar processo
+                    </Link>
+                  </Button>
+                </SubscriptionAccessWrapper>
               </div>
             </div>
           )}

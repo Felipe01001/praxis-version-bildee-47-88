@@ -15,6 +15,7 @@ import { StatusBadge } from '@/components/StatusBadge';
 import { ClientStatusBadge } from '@/components/client/ClientStatusBadge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useHoverEffect } from '@/hooks/useHoverEffect';
+import { SubscriptionAccessWrapper } from '@/components/subscription/SubscriptionAccessWrapper';
 
 interface ClientsFilterCardProps {
   filteredClients: any[];
@@ -63,12 +64,14 @@ const ClientsFilterCard = ({
             <UserRound className="h-5 w-5 text-praxis-olive" />
             Clientes
           </div>
-          <Button asChild size="sm" className="bg-praxis-olive hover:bg-praxis-olive/90">
-            <Link to="/clients/new" className="flex items-center gap-2">
-              <UserPlus className="h-4 w-4" />
-              <span>Novo Cliente</span>
-            </Link>
-          </Button>
+          <SubscriptionAccessWrapper action="criar um novo cliente">
+            <Button asChild size="sm" className="bg-praxis-olive hover:bg-praxis-olive/90">
+              <Link to="/clients/new" className="flex items-center gap-2">
+                <UserPlus className="h-4 w-4" />
+                <span>Novo Cliente</span>
+              </Link>
+            </Button>
+          </SubscriptionAccessWrapper>
         </CardTitle>
       </CardHeader>
       <CardContent className="px-[7px]">

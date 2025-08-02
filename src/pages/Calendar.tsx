@@ -22,6 +22,7 @@ import { StatusBadge } from '@/components/StatusBadge';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useHoverEffect } from '@/hooks/useHoverEffect';
+import { SubscriptionAccessWrapper } from '@/components/subscription/SubscriptionAccessWrapper';
 
 const Calendar = () => {
   const navigate = useNavigate();
@@ -384,10 +385,12 @@ const Calendar = () => {
         <h1 className="text-2xl sm:text-3xl font-bold text-praxis-text">Agenda</h1>
         
         <div className="flex items-center space-x-2">
-          <Button variant="outline" onClick={() => setIsAddingTask(true)}>
-            <Plus className="h-4 w-4 mr-2" />
-            Nova Tarefa
-          </Button>
+          <SubscriptionAccessWrapper action="criar uma nova tarefa">
+            <Button variant="outline" onClick={() => setIsAddingTask(true)}>
+              <Plus className="h-4 w-4 mr-2" />
+              Nova Tarefa
+            </Button>
+          </SubscriptionAccessWrapper>
           
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

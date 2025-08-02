@@ -14,6 +14,7 @@ import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '@/context/ThemeContext';
 import { useHoverEffect } from '@/hooks/useHoverEffect';
+import { SubscriptionAccessWrapper } from '@/components/subscription/SubscriptionAccessWrapper';
 
 interface CasesFilterCardProps {
   filteredCases: any[];
@@ -51,12 +52,14 @@ const CasesFilterCard = ({
             <MessageSquare className="h-5 w-5 text-praxis-olive" />
             Atendimentos
           </CardTitle>
-          <Button variant="default" size={isMobile ? "sm" : "default"} asChild className={isMobile ? "px-2 min-w-0" : "px-3 min-w-0"}>
-            <Link to="/clients">
-              <Plus className="h-4 w-4" />
-              {isMediumScreen && <span className="ml-1">Novo Atendimento</span>}
-            </Link>
-          </Button>
+          <SubscriptionAccessWrapper action="criar um novo atendimento">
+            <Button variant="default" size={isMobile ? "sm" : "default"} asChild className={isMobile ? "px-2 min-w-0" : "px-3 min-w-0"}>
+              <Link to="/clients">
+                <Plus className="h-4 w-4" />
+                {isMediumScreen && <span className="ml-1">Novo Atendimento</span>}
+              </Link>
+            </Button>
+          </SubscriptionAccessWrapper>
         </div>
       </CardHeader>
       <CardContent className="px-[7px]">

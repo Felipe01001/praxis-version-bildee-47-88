@@ -16,6 +16,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { useHoverEffect } from '@/hooks/useHoverEffect';
+import { SubscriptionAccessWrapper } from '@/components/subscription/SubscriptionAccessWrapper';
 
 interface TaskCardProps {
   task: Task;
@@ -254,14 +255,16 @@ export const TaskCard = ({
                 )}
                 
                 {(handleViewClick || onView || onViewTask) && (
-                  <Button 
-                    variant="default" 
-                    size="sm" 
-                    className="w-full mt-2" 
-                    onClick={handleViewClick}
-                  >
-                    Visualizar tarefa completa
-                  </Button>
+                  <SubscriptionAccessWrapper action="visualizar uma tarefa">
+                    <Button 
+                      variant="default" 
+                      size="sm" 
+                      className="w-full mt-2" 
+                      onClick={handleViewClick}
+                    >
+                      Visualizar tarefa completa
+                    </Button>
+                  </SubscriptionAccessWrapper>
                 )}
               </div>
             </CollapsibleContent>
